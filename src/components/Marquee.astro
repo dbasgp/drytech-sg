@@ -1,0 +1,27 @@
+---
+// Spec ticker — CSS-only, no JS
+const items = [
+  'ULTRA-THIN CEILING',
+  '20 → 400 L/DAY',
+  '39 dB(A) QUIET',
+  '1.8 M PUMP LIFT',
+  'TUYA APP CONTROL',
+  'RS485 MODBUS',
+  'SINGAPORE CLIMATE',
+  'FALSE CEILING FIT',
+  'WHOLE-SPACE COVERAGE',
+  'BMS INTEGRATION',
+];
+---
+
+<div class="bg-cyan-600 overflow-hidden py-3 select-none" aria-hidden="true">
+  <div class="flex animate-marquee whitespace-nowrap gap-0">
+    <!-- Two copies for seamless loop -->
+    {[...items, ...items].map((item) => (
+      <span class="inline-flex items-center gap-4 px-4">
+        <span class="text-white text-[11px] font-mono font-semibold tracking-[0.18em]">{item}</span>
+        <span class="text-cyan-300/60 text-[8px]">◆</span>
+      </span>
+    ))}
+  </div>
+</div>

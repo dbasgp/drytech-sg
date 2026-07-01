@@ -1,0 +1,68 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+  ogImage?: string;
+}
+
+const {
+  title = "DryTech.sg — Singapore's Ceiling Dehumidifier Specialist",
+  description =
+    'Ultra-thin ceiling dehumidifiers for Singapore homes and businesses. Whole-space humidity control from 20 to 400 L/day. Smart app control, built-in drain pump.',
+  ogImage = '/og-image.jpg',
+} = Astro.props;
+
+const canonicalUrl = new URL(Astro.url.pathname, 'https://drytech.sg').href;
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={canonicalUrl} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={`https://drytech.sg${ogImage}`} />
+    <meta property="og:site_name" content="DryTech.sg" />
+    <meta property="og:locale" content="en_SG" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={`https://drytech.sg${ogImage}`} />
+
+    <title>{title}</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&family=Syne:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <style is:global>
+      /* Lenis smooth scroll baseline */
+      html.lenis, html.lenis body { height: auto; }
+      .lenis.lenis-smooth { scroll-behavior: auto !important; }
+      .lenis.lenis-stopped { overflow: hidden; }
+
+      /* Hero word overflow clip — parent divs clip sliding-up reveal */
+      .hero-word { display: block; }
+    </style>
+  </head>
+  <body class="bg-white text-slate-900 antialiased overflow-x-hidden">
+    <slot />
+    <script>
+      import '../scripts/animations';
+    </script>
+  </body>
+</html>

@@ -1,0 +1,107 @@
+---
+const problems = [
+  {
+    title: 'Wall and ceiling condensation',
+    body: "Singapore's year-round 80–90% humidity turns cool surfaces into drip zones. Paint peels. Stains spread.",
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9-4.03-9-9-9zm0 0v18M3 12h18"/>`,
+  },
+  {
+    title: 'Mold and mildew growth',
+    body: 'Mold spreads within 24–48 hours in humid air, damaging walls, ceilings, wardrobes and anything stored inside.',
+    icon: `<circle cx="12" cy="12" r="3" stroke-width="1.5"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 2v2m0 16v2M2 12h2m16 0h2m-3.64-6.36-1.42 1.42M5.06 18.94l-1.42 1.42M18.94 18.94l-1.42-1.42M5.06 5.06 3.64 6.48"/>`,
+  },
+  {
+    title: 'Musty air in every room',
+    body: 'Bedrooms, storerooms, wardrobes — persistent musty odours that no amount of cleaning fully solves.',
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 12c0 0 3-3 9-3s9 3 9 3M3 16c0 0 3-3 9-3s9 3 9 3M3 8c0 0 3-3 9-3s9 3 9 3"/>`,
+  },
+  {
+    title: 'Damage to goods and materials',
+    body: 'Electronics corrode. Documents warp. Timber swells. Stock degrades. High humidity is a slow, silent destroyer.',
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20 7H4a2 2 0 00-2 2v6a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2zm-8 8v-6m-4 6V9m8 6V9"/>`,
+  },
+];
+
+const solutions = [
+  {
+    title: 'Ceiling-mounted, completely hidden',
+    body: 'Units sit flush above a false ceiling. No floor space, no wall boxes — just clean air, invisibly managed.',
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 4h18M5 4v16h14V4M9 9h6m-6 4h6"/>`,
+  },
+  {
+    title: 'Whole-space dehumidification',
+    body: 'Ducted distribution covers an entire floor or building — not just one room. One unit, total control.',
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 12h18M12 3v18m-6.36-2.64 8.72-8.72M17.36 5.64 8.64 14.36"/>`,
+  },
+  {
+    title: 'Set it once, forget it',
+    body: 'Tuya app control over WiFi, RS485 Modbus for BMS integration. Auto-maintains your target RH level around the clock.',
+    icon: `<rect x="5" y="2" width="14" height="20" rx="2" stroke-width="1.5"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 18h.01"/>`,
+  },
+  {
+    title: 'Quiet, continuous operation',
+    body: 'Approximately 39–50 dB depending on model — quieter than a split aircon. Runs around the clock without interruption.',
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15.536 8.464a5 5 0 010 7.072M18.364 5.636a9 9 0 010 12.728M6.343 6.343L17.657 17.657M9.172 9.172a4 4 0 015.656 5.656"/>`,
+  },
+];
+---
+
+<section id="problem-solution" class="py-24 bg-white">
+  <div class="max-w-7xl mx-auto px-6">
+
+    <!-- Section header -->
+    <div class="max-w-2xl mb-16" data-reveal>
+      <p class="text-xs font-semibold tracking-[0.16em] uppercase text-cyan-600 mb-3">The Challenge</p>
+      <h2 class="font-display font-bold text-4xl text-slate-900 leading-tight mb-4">
+        Singapore's humidity doesn't rest. Neither should your solution.
+      </h2>
+      <p class="text-slate-500 text-lg">
+        At 80–90% relative humidity year-round, Singapore air puts homes, offices and inventory under constant stress.
+        Here's what that looks like — and what DBA does about it.
+      </p>
+    </div>
+
+    <div class="grid lg:grid-cols-2 gap-10 lg:gap-16">
+
+      <!-- Problems -->
+      <div>
+        <h3 class="text-xs font-semibold tracking-[0.16em] uppercase text-slate-400 mb-6" data-reveal>
+          Without proper dehumidification
+        </h3>
+        <div class="flex flex-col gap-6" data-reveal-group>
+          {problems.map(({ title, body, icon }) => (
+            <div class="flex gap-4" data-reveal-item>
+              <div class="shrink-0 w-10 h-10 rounded-lg bg-red-50 flex items-center justify-center mt-0.5">
+                <svg width="20" height="20" fill="none" stroke="#EF4444" viewBox="0 0 24 24" aria-hidden="true" set:html={icon}/>
+              </div>
+              <div>
+                <h4 class="font-semibold text-slate-900 mb-1">{title}</h4>
+                <p class="text-slate-500 text-sm leading-relaxed">{body}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Solutions -->
+      <div>
+        <h3 class="text-xs font-semibold tracking-[0.16em] uppercase text-slate-400 mb-6" data-reveal>
+          With a DBA ceiling dehumidifier
+        </h3>
+        <div class="flex flex-col gap-6" data-reveal-group>
+          {solutions.map(({ title, body, icon }) => (
+            <div class="flex gap-4" data-reveal-item>
+              <div class="shrink-0 w-10 h-10 rounded-lg bg-cyan-50 flex items-center justify-center mt-0.5">
+                <svg width="20" height="20" fill="none" stroke="#0891B2" viewBox="0 0 24 24" aria-hidden="true" set:html={icon}/>
+              </div>
+              <div>
+                <h4 class="font-semibold text-slate-900 mb-1">{title}</h4>
+                <p class="text-slate-500 text-sm leading-relaxed">{body}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

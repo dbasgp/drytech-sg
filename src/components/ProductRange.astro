@@ -1,0 +1,97 @@
+---
+import { productLines, waLink } from '../data/products';
+import ProductCard from './ProductCard.astro';
+
+const consultLink = waLink("Hi DBA, I'd like a free consultation for a ceiling dehumidifier for my space.");
+---
+
+<section id="products" class="py-24 bg-white">
+  <div class="max-w-7xl mx-auto px-6">
+
+    <!-- Section header -->
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-16" data-reveal>
+      <div>
+        <p class="text-[10px] font-mono tracking-[0.22em] uppercase text-cyan-600 mb-3">01 — Product Range</p>
+        <h2 class="font-display font-bold text-slate-900 leading-tight" style="font-size:clamp(28px,4.5vw,52px);">
+          The right unit<br/>for every space.
+        </h2>
+      </div>
+      <a
+        href={consultLink}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 border border-slate-200 hover:border-cyan-300 text-slate-600 hover:text-cyan-700 text-sm font-semibold px-5 py-2.5 rounded-full transition-colors self-start sm:self-auto whitespace-nowrap"
+      >
+        Not sure which? Ask us →
+      </a>
+    </div>
+
+    <!-- Tab navigation -->
+    <div id="product-line-nav" class="sticky top-14 z-30 -mx-6 px-6 bg-white/95 backdrop-blur-sm border-b border-slate-100">
+      <div class="flex gap-0 overflow-x-auto scrollbar-none">
+        {productLines.map((line, i) => (
+          <button
+            type="button"
+            class="product-tab shrink-0 text-sm font-medium px-5 py-4 border-b-2 transition-colors whitespace-nowrap"
+            data-tab={line.id}
+            data-active={i === 0 ? 'true' : 'false'}
+          >
+            {line.name.replace(' Dehumidifiers', '').replace(', Humidity Control & Desiccant', '')}
+          </button>
+        ))}
+      </div>
+    </div>
+
+    <!-- Tab panels -->
+    {productLines.map((line, li) => (
+      <div
+        class="product-tab-panel pt-6"
+        data-panel={line.id}
+        style={li !== 0 ? 'display:none;' : ''}
+      >
+        <!-- Line blurb -->
+        <p class="text-slate-500 text-sm max-w-2xl mb-6 leading-relaxed">{line.blurb}</p>
+
+        <!-- Product rows -->
+        <div class="divide-y divide-slate-100 -mx-4">
+          {line.products.map((product, pi) => (
+            <ProductCard product={product} index={pi} />
+          ))}
+        </div>
+      </div>
+    ))}
+
+  </div>
+</section>
+
+<style>
+  .product-tab[data-active="true"] {
+    color: #0e7490;
+    border-color: #0e7490;
+  }
+  .product-tab[data-active="false"] {
+    color: #94a3b8;
+    border-color: transparent;
+  }
+  .product-tab[data-active="false"]:hover {
+    color: #475569;
+  }
+  .scrollbar-none::-webkit-scrollbar { display: none; }
+  .scrollbar-none { -ms-overflow-style: none; scrollbar-width: none; }
+</style>
+
+<script>
+  const tabs = document.querySelectorAll<HTMLButtonElement>('.product-tab');
+  const panels = document.querySelectorAll<HTMLElement>('.product-tab-panel');
+
+  function activateTab(id: string) {
+    tabs.forEach(t => t.dataset.active = (t.dataset.tab === id).toString());
+    panels.forEach(p => {
+      (p as HTMLElement).style.display = p.dataset.panel === id ? '' : 'none';
+    });
+  }
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => activateTab(tab.dataset.tab!));
+  });
+</script>
