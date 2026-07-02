@@ -1,28 +1,31 @@
 ---
-// PDF files go in /public/catalogs/ — download them from dba.sg and update the paths here.
 const catalogs = [
   {
     title: 'Ultra-Thin Ceiling Series',
     subtitle: 'DBA-UTC20 / UTC68 / UTC120',
     file: '/catalogs/dba-ultra-thin-ceiling.pdf',
+    thumb: '/images/catalogs/catalog-ultra-thin.jpg',
     lines: ['UTC20', 'UTC68', 'UTC120'],
   },
   {
     title: 'Commercial Ceiling Series',
-    subtitle: 'DBA-GEC68 / GEC145 / GEC280 / GEC400',
+    subtitle: 'DBA-GEC68 / GEC145 / GEC280 / GEC400 / GEC550',
     file: '/catalogs/dba-commercial-ceiling.pdf',
-    lines: ['GEC68LD-HP', 'GEC145LD-HP', 'GEC280LD', 'GEC400LD'],
+    thumb: '/images/catalogs/catalog-commercial-ceiling.jpg',
+    lines: ['GEC68LD-HP', 'GEC145LD-HP', 'GEC280LD', 'GEC400LD', 'GEC550LD'],
   },
   {
     title: 'Restoration Series',
     subtitle: 'DBA-DH65 / GEX75 / GEX110',
     file: '/catalogs/dba-restoration.pdf',
+    thumb: '/images/catalogs/catalog-restoration.jpg',
     lines: ['DH65', 'GEX75', 'GEX110'],
   },
   {
     title: 'Industrial & Specialised',
     subtitle: 'Industrial · Humidity Control · Desiccant',
     file: '/catalogs/dba-industrial-specialised.pdf',
+    thumb: '/images/catalogs/catalog-industrial.jpg',
     lines: ['Industrial', 'Humidity Control', 'Desiccant'],
   },
 ];
@@ -37,43 +40,43 @@ const catalogs = [
         Product catalogs
       </h2>
       <p class="text-slate-500 text-lg">
-        Full specifications, dimensions and performance data for every DryTech dehumidifier line.
+        Full specifications, dimensions and performance data for every DBA dehumidifier line.
       </p>
     </div>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-      {catalogs.map(({ title, subtitle, file, lines }) => (
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-5">
+      {catalogs.map(({ title, subtitle, file, thumb, lines }) => (
         <a
           href={file}
           target="_blank"
           rel="noopener noreferrer"
           download
-          class="group bg-white rounded-2xl border border-slate-200 hover:border-cyan-200 hover:shadow-md p-6 flex flex-col transition-all duration-300"
+          class="group bg-white rounded-2xl border border-slate-200 hover:border-cyan-200 hover:shadow-lg overflow-hidden flex flex-col transition-all duration-300"
         >
-          <!-- PDF icon -->
-          <div class="w-10 h-10 rounded-xl bg-cyan-50 group-hover:bg-cyan-100 flex items-center justify-center mb-4 transition-colors">
-            <svg width="20" height="20" fill="none" stroke="#0891B2" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"/>
-              <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v6h6"/>
-            </svg>
+          <!-- Catalog cover thumbnail -->
+          <div class="relative overflow-hidden bg-slate-100 aspect-[3/4]">
+            <img
+              src={thumb}
+              alt={`${title} catalog cover`}
+              class="w-full h-full object-cover object-top group-hover:scale-[1.03] transition-transform duration-500"
+              loading="lazy"
+              decoding="async"
+            />
+            <!-- Download overlay on hover -->
+            <div class="absolute inset-0 bg-cyan-900/0 group-hover:bg-cyan-900/40 transition-colors duration-300 flex items-center justify-center">
+              <div class="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white text-cyan-700 text-xs font-bold px-4 py-2 rounded-full flex items-center gap-1.5">
+                <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v12m0 0l-4-4m4 4 4-4M4 20h16"/>
+                </svg>
+                Download
+              </div>
+            </div>
           </div>
 
-          <h3 class="font-display font-semibold text-slate-900 text-sm mb-1">{title}</h3>
-          <p class="text-slate-400 text-xs mb-4">{subtitle}</p>
-
-          <!-- Model tags -->
-          <div class="flex flex-wrap gap-1 mt-auto mb-4">
-            {lines.map(l => (
-              <span class="text-[10px] bg-slate-100 text-slate-500 px-2 py-0.5 rounded-full font-medium">{l}</span>
-            ))}
-          </div>
-
-          <!-- Download label -->
-          <div class="flex items-center gap-1.5 text-cyan-600 text-xs font-semibold group-hover:gap-2.5 transition-all">
-            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v12m0 0l-4-4m4 4 4-4M4 20h16"/>
-            </svg>
-            Download PDF
+          <!-- Card footer -->
+          <div class="p-4 flex flex-col flex-1">
+            <h3 class="font-display font-semibold text-slate-900 text-sm mb-0.5 leading-snug">{title}</h3>
+            <p class="text-slate-400 text-[11px] leading-snug">{subtitle}</p>
           </div>
         </a>
       ))}
