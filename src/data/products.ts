@@ -48,7 +48,7 @@ export const contact = {
   whatsapp: "6589859886",            // wa.me number, no + or spaces
   whatsappDisplay: "+65 8985 9886",
   hotline: "+65 6772 9962",
-  email: "dba@dba.sg",
+  email: "info@drytech.sg",
   calculatorUrl: "https://drytech-sg-calculator-797933795168.us-west1.run.app",
 };
 
