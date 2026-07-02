@@ -169,6 +169,20 @@ export const productLines: ProductLine[] = [
         sourceUrl: "https://www.dba.sg/products/dba-gec400ld-ceiling-dehumidifier",
         enquiryText: "Hi DBA, I'm interested in the DBA-GEC400LD ceiling dehumidifier. Could you share more details and a quote?",
       },
+      {
+        id: "dba-gec550ld",
+        name: "DBA-GEC550LD",
+        line: "Commercial Ceiling",
+        capacity: "550 L/day",
+        tagline: "Ultra-high-capacity industrial ceiling unit",
+        description:
+          "The most powerful ceiling dehumidifier in the DBA range, built for extreme industrial moisture loads and large-volume spaces.",
+        bestFor: ["industrial"],
+        highlights: ["550 L/day", "Ducted ceiling install", "Drain pump", "RS485 / BMS ready"],
+        image: "/images/products/dba-gec550ld.jpg",
+        sourceUrl: "https://www.dba.sg/products/dba-gec550ld-ceiling-dehumidifier",
+        enquiryText: "Hi DryTech, I'm interested in the DBA-GEC550LD (550L/day) ceiling dehumidifier. Could you share more details and a quote?",
+      },
     ],
   },
   {
