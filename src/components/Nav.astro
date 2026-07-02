@@ -13,16 +13,8 @@ const navLinks = [
 <header id="site-nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 nav-transparent">
   <div class="max-w-7xl mx-auto px-6 h-14 flex items-center justify-between">
 
-    <a href="/" class="flex items-center gap-2 shrink-0" aria-label="DryTech.sg home">
-      <div class="nav-logo-icon w-7 h-7 rounded flex items-center justify-center shrink-0 transition-colors">
-        <svg width="14" height="17" viewBox="0 0 12 15" fill="none" aria-hidden="true">
-          <path d="M6 0.5C6 0.5 0.5 6 0.5 9.5a5.5 5.5 0 0011 0C11.5 6 6 0.5 6 0.5Z" fill="white"/>
-        </svg>
-      </div>
-      <div class="leading-none">
-        <div class="nav-logo-name font-display font-bold text-sm transition-colors">DryTech</div>
-        <div class="nav-logo-sub text-[8px] tracking-[0.2em] uppercase transition-colors">DRYTECH.SG</div>
-      </div>
+    <a href="/" class="flex items-center shrink-0" aria-label="DryTech.sg home">
+      <img src="/images/drytech-logo.png" alt="DryTech" class="nav-logo-img h-6 w-auto" />
     </a>
 
     <nav class="hidden md:flex items-center gap-7" aria-label="Main navigation">
@@ -118,16 +110,12 @@ const navLinks = [
 </script>
 
 <style>
-  /* Dark / transparent nav — all white */
   .nav-transparent .nav-link { color: rgba(255,255,255,0.92); }
   .nav-transparent .nav-cta { color: rgba(255,255,255,0.92); }
   .nav-transparent .nav-cta-border { border-color: rgba(255,255,255,0.25); }
   .nav-transparent .nav-cta:hover { border-color: rgba(255,255,255,0.55); }
-  .nav-transparent .nav-logo-icon { background: rgba(255,255,255,0.15); }
-  .nav-transparent .nav-logo-name { color: rgba(255,255,255,0.95); }
-  .nav-transparent .nav-logo-sub  { color: rgba(255,255,255,0.35); }
+  .nav-transparent .nav-logo-img { filter: brightness(0) invert(1); mix-blend-mode: screen; }
 
-  /* Solid / scrolled nav — full color */
   .nav-solid {
     background: rgba(255,255,255,0.97);
     backdrop-filter: blur(20px);
@@ -138,7 +126,5 @@ const navLinks = [
   .nav-solid .nav-cta { color: #0f172a; }
   .nav-solid .nav-cta-border { border-color: rgba(0,0,0,0.15); }
   .nav-solid .nav-cta:hover { border-color: rgba(0,0,0,0.35); }
-  .nav-solid .nav-logo-icon { background: #0891b2; }
-  .nav-solid .nav-logo-name { color: #0f172a; }
-  .nav-solid .nav-logo-sub  { color: #94a3b8; }
+  .nav-solid .nav-logo-img { filter: none; mix-blend-mode: multiply; }
 </style>
