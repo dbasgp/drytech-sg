@@ -28,23 +28,19 @@ document.querySelectorAll<HTMLAnchorElement>('a[href^="#"]').forEach((a) => {
 });
 
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-if (prefersReducedMotion) {
-  // Show all hero elements immediately
-  document.querySelectorAll<HTMLElement>('.hero-word, .hero-sub, .hero-ctas, .hero-image, .hero-trust, .scroll-indicator').forEach((el) => {
-    el.style.opacity = '1';
-  });
-} else {
+if (!prefersReducedMotion) {
   // --- Hero entry animations ---
+  // Initial states set here (not in HTML) so content is visible if JS fails
   const heroWords = document.querySelectorAll('.hero-word');
   if (heroWords.length) {
-    // Set initial states (HTML already has opacity:0 on these elements)
-    gsap.set('.hero-word',  { yPercent: 115 });
-    gsap.set('.hero-sub',   { y: 14 });
-    gsap.set('.hero-ctas',  { y: 14 });
-    gsap.set('.hero-image', { x: 32 });
-    gsap.set('.hero-trust', { y: 10 });
+    gsap.set('.hero-word',        { yPercent: 115 });
+    gsap.set('.hero-sub',         { opacity: 0, y: 14 });
+    gsap.set('.hero-ctas',        { opacity: 0, y: 14 });
+    gsap.set('.hero-image',       { opacity: 0, x: 32 });
+    gsap.set('.hero-trust',       { opacity: 0, y: 10 });
+    gsap.set('.scroll-indicator', { opacity: 0 });
 
-    gsap.to('.hero-word', { yPercent: 0, duration: 1, ease: 'power3.out', stagger: 0.1 });
+    gsap.to('.hero-word',  { yPercent: 0, duration: 1, ease: 'power3.out', stagger: 0.1 });
     gsap.to('.hero-sub',   { opacity: 1, y: 0, duration: 0.7, ease: 'power2.out', delay: 0.55 });
     gsap.to('.hero-ctas',  { opacity: 1, y: 0, duration: 0.7, ease: 'power2.out', delay: 0.75 });
     gsap.to('.hero-image', { opacity: 1, x: 0, duration: 1.2, ease: 'power3.out', delay: 0.2 });
@@ -73,38 +69,4 @@ if (prefersReducedMotion) {
     repeat: -1,
     yoyo: true,
   });
-
-  // --- Section reveals (individual elements) ---
-  document.querySelectorAll('[data-reveal]').forEach((el) => {
-    gsap.from(el, {
-      opacity: 0,
-      y: 36,
-      duration: 0.8,
-      ease: 'power2.out',
-      scrollTrigger: {
-        trigger: el,
-        start: 'top 88%',
-        toggleActions: 'play none none none',
-      },
-    });
-  });
-
-  // --- Staggered grid reveals ---
-  document.querySelectorAll('[data-reveal-group]').forEach((group) => {
-    const items = group.querySelectorAll('[data-reveal-item]');
-    gsap.from(items, {
-      opacity: 0,
-      y: 36,
-      duration: 0.7,
-      ease: 'power2.out',
-      stagger: 0.08,
-      scrollTrigger: {
-        trigger: group,
-        start: 'top 85%',
-        toggleActions: 'play none none none',
-      },
-    });
-  });
-
-  // Product tab bar uses CSS sticky — no GSAP pin needed
 }

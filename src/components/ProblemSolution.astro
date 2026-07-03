@@ -50,7 +50,7 @@ const solutions = [
   <div class="max-w-7xl mx-auto px-6">
 
     <!-- Section header -->
-    <div class="max-w-2xl mb-16" data-reveal>
+    <div class="max-w-2xl mb-16">
       <p class="text-xs font-semibold tracking-[0.16em] uppercase text-cyan-600 mb-3">The Challenge</p>
       <h2 class="font-display font-bold text-4xl text-slate-900 leading-tight mb-4">
         Singapore's humidity doesn't rest. Neither should your solution.
@@ -65,12 +65,12 @@ const solutions = [
 
       <!-- Problems -->
       <div>
-        <h3 class="text-xs font-semibold tracking-[0.16em] uppercase text-slate-400 mb-6" data-reveal>
+        <h3 class="text-xs font-semibold tracking-[0.16em] uppercase text-slate-400 mb-6">
           Without proper dehumidification
         </h3>
-        <div class="flex flex-col gap-6" data-reveal-group>
+        <div class="flex flex-col gap-6">
           {problems.map(({ title, body, icon }) => (
-            <div class="flex gap-4" data-reveal-item>
+            <div class="flex gap-4">
               <div class="shrink-0 w-10 h-10 rounded-lg bg-red-50 flex items-center justify-center mt-0.5">
                 <svg width="20" height="20" fill="none" stroke="#EF4444" viewBox="0 0 24 24" aria-hidden="true" set:html={icon}/>
               </div>
@@ -85,12 +85,12 @@ const solutions = [
 
       <!-- Solutions -->
       <div>
-        <h3 class="text-xs font-semibold tracking-[0.16em] uppercase text-slate-400 mb-6" data-reveal>
+        <h3 class="text-xs font-semibold tracking-[0.16em] uppercase text-slate-400 mb-6">
           With a DBA ceiling dehumidifier
         </h3>
-        <div class="flex flex-col gap-6" data-reveal-group>
+        <div class="flex flex-col gap-6">
           {solutions.map(({ title, body, icon }) => (
-            <div class="flex gap-4" data-reveal-item>
+            <div class="flex gap-4">
               <div class="shrink-0 w-10 h-10 rounded-lg bg-cyan-50 flex items-center justify-center mt-0.5">
                 <svg width="20" height="20" fill="none" stroke="#0891B2" viewBox="0 0 24 24" aria-hidden="true" set:html={icon}/>
               </div>
