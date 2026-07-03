@@ -8,7 +8,7 @@ const rows = [
     title: 'Ultra-slim ceiling profile',
     detail: "Fits inside a standard false ceiling without modification. Nothing to see — not even a grille if you don't want one.",
     // Cross-section side view: structural slab → thin unit → false ceiling tile
-    icon: `<svg viewBox="0 0 24 24" fill="none" aria-hidden="true" class="w-5 h-5">
+    icon: `<svg viewBox="0 0 24 24" fill="none" aria-hidden="true" class="w-4 h-4">
       <rect x="1" y="1.5" width="22" height="3" rx="0.5" fill="currentColor" opacity="0.5"/>
       <rect x="3" y="6.5" width="18" height="4.5" rx="1" fill="currentColor"/>
       <line x1="7" y1="8.5" x2="7" y2="10.5" stroke="black" stroke-width="1" opacity="0.25"/>
@@ -25,7 +25,7 @@ const rows = [
     title: 'Built-in condensate pump',
     detail: 'Pumps water up to 1.8 m so you can drain to any convenient point. No gravity slope required, no water tray to empty.',
     // Vertical pipe with water droplet at bottom being lifted to outlet at top
-    icon: `<svg viewBox="0 0 24 24" fill="none" aria-hidden="true" class="w-5 h-5">
+    icon: `<svg viewBox="0 0 24 24" fill="none" aria-hidden="true" class="w-4 h-4">
       <rect x="10" y="3" width="4" height="15" rx="2" fill="currentColor" opacity="0.25"/>
       <path d="M12 19 C12 19 8.5 15.5 8.5 13.5 C8.5 11.6 10.1 10 12 10 C13.9 10 15.5 11.6 15.5 13.5 C15.5 15.5 12 19 12 19Z" fill="currentColor" opacity="0.5"/>
       <circle cx="12" cy="4.5" r="2" fill="currentColor"/>
@@ -40,7 +40,7 @@ const rows = [
     title: 'Whole-space coverage',
     detail: 'Ducted airflow treats every room, not just the one with the unit. One install, building-wide humidity control.',
     // Top-down floor plan: unit in center, 4 ducts radiating to corners of the space
-    icon: `<svg viewBox="0 0 24 24" fill="none" aria-hidden="true" class="w-5 h-5">
+    icon: `<svg viewBox="0 0 24 24" fill="none" aria-hidden="true" class="w-4 h-4">
       <rect x="1.5" y="1.5" width="21" height="21" rx="1.5" stroke="currentColor" stroke-width="1.5" fill="none" opacity="0.6"/>
       <rect x="9" y="9" width="6" height="6" rx="1" fill="currentColor"/>
       <line x1="12" y1="9" x2="12" y2="3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
@@ -59,7 +59,7 @@ const rows = [
     title: 'Near-silent operation',
     detail: 'Quieter than most split aircons. Runs continuously in the background without disrupting sleep or conversations.',
     // Speaker cone + only ONE tiny arc (indicating barely any sound)
-    icon: `<svg viewBox="0 0 24 24" fill="none" aria-hidden="true" class="w-5 h-5">
+    icon: `<svg viewBox="0 0 24 24" fill="none" aria-hidden="true" class="w-4 h-4">
       <path d="M4 9 L4 15 L7 15 L13 19 L13 5 L7 9 Z" fill="currentColor"/>
       <path d="M16 10.5 Q18 12 16 13.5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" fill="none"/>
       <path d="M11 2 L11 22" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" opacity="0.15"/>
@@ -72,7 +72,7 @@ const rows = [
     title: 'Tuya app + RS485 Modbus',
     detail: 'Consumer app for homes. RS485 Modbus for commercial BMS integration. One platform, any install context.',
     // Phone with WiFi signal arcs — represents Tuya app control
-    icon: `<svg viewBox="0 0 24 24" fill="none" aria-hidden="true" class="w-5 h-5">
+    icon: `<svg viewBox="0 0 24 24" fill="none" aria-hidden="true" class="w-4 h-4">
       <rect x="7" y="4" width="10" height="17" rx="2" stroke="currentColor" stroke-width="1.5" fill="none"/>
       <rect x="9" y="6.5" width="6" height="8" rx="0.5" fill="currentColor" opacity="0.3"/>
       <circle cx="12" cy="18" r="1" fill="currentColor"/>
@@ -86,7 +86,7 @@ const rows = [
     title: "Engineered for Singapore's climate",
     detail: "Optimised for 80–90% outdoor RH, 28–33°C ambient. Effective dehumidification without a punishing power bill.",
     // Three humidity droplets with a temperature gauge — SG tropical climate
-    icon: `<svg viewBox="0 0 24 24" fill="none" aria-hidden="true" class="w-5 h-5">
+    icon: `<svg viewBox="0 0 24 24" fill="none" aria-hidden="true" class="w-4 h-4">
       <path d="M12 20 C12 20 6 14.5 6 10.5 C6 7.4 8.7 5 12 5 C15.3 5 18 7.4 18 10.5 C18 14.5 12 20 12 20Z" fill="currentColor" opacity="0.7"/>
       <path d="M5 11 C5 11 2 8.5 2 6.5 C2 5 3.3 4 5 4 C6.7 4 8 5 8 6.5 C8 8.5 5 11 5 11Z" fill="currentColor" opacity="0.4"/>
       <path d="M19 11 C19 11 16 8.5 16 6.5 C16 5 17.3 4 19 4 C20.7 4 22 5 22 6.5 C22 8.5 19 11 19 11Z" fill="currentColor" opacity="0.4"/>
@@ -114,21 +114,21 @@ const rows = [
     <div class="divide-y divide-white/8">
       {rows.map((row) => (
         <div
-          class="group flex items-center py-5 hover:bg-white/[0.02] -mx-6 px-6 transition-colors gap-5"
+          class="group flex items-center py-5 hover:bg-white/[0.02] -mx-6 px-6 transition-colors gap-3"
         >
           <!-- Index -->
-          <span class="text-[11px] font-mono text-white/25 shrink-0 w-6">{row.n}</span>
+          <span class="text-[11px] font-mono text-white/25 shrink-0 w-6 hidden sm:inline">{row.n}</span>
 
           <!-- Bubble icon -->
-          <div class="w-11 h-11 rounded-full bg-cyan-500/12 border border-cyan-500/20 flex items-center justify-center text-cyan-400 shrink-0">
+          <div class="w-8 h-8 rounded-full bg-cyan-500/12 border border-cyan-500/20 flex items-center justify-center text-cyan-400 shrink-0">
             <Fragment set:html={row.icon} />
           </div>
 
           <!-- Content: metric + divider + title/detail, all bounded by flex-1 min-w-0 -->
-          <div class="flex-1 min-w-0 flex items-center gap-5">
+          <div class="flex-1 min-w-0 flex items-center gap-3">
 
             <!-- Metric: fixed width so separator stays at the same X across all rows -->
-            <div class="shrink-0 w-[80px] whitespace-nowrap font-sans font-bold text-cyan-500 leading-none tabular-nums" style="font-size:clamp(15px,1.4vw,20px);">{row.metric}</div>
+            <div class="shrink-0 w-14 whitespace-nowrap font-sans font-bold text-cyan-500 leading-none tabular-nums" style="font-size:clamp(15px,1.4vw,20px);">{row.metric}</div>
 
             <!-- Divider -->
             <div class="self-stretch w-px bg-white/10 shrink-0"></div>
