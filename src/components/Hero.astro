@@ -29,8 +29,8 @@ const droplets = [
     />
   ))}
 
-  <!-- House PNG: absolute right side, large, full-height -->
-  <div class="absolute right-0 bottom-0 w-[56%] hidden lg:flex items-end justify-end z-0" aria-hidden="true" style="top:36%;">
+  <!-- House PNG: absolute right side, large — shows tablet (sm) and up -->
+  <div class="absolute right-0 bottom-0 w-[56%] hidden sm:flex items-end justify-end z-0" aria-hidden="true" style="top:36%;">
     <img
       src="/images/house-cutaway.png"
       alt="Ceiling dehumidifier whole-house ducting system"
@@ -61,8 +61,19 @@ const droplets = [
       </div>
     </div>
 
+    <!-- Mobile hero image: stacked inline below headline on phones only -->
+    <div class="sm:hidden relative -mx-8 mt-4 h-[48vw] max-h-56 overflow-hidden" aria-hidden="true">
+      <img
+        src="/images/house-cutaway.png"
+        alt=""
+        class="hero-image absolute right-0 bottom-0 h-full w-auto object-contain object-right-bottom"
+        loading="eager"
+        decoding="async"
+      />
+    </div>
+
     <!-- Subtitle + CTAs + Trust — left column only, sits below headline -->
-    <div class="mt-auto pt-12 lg:max-w-[42%]">
+    <div class="sm:mt-auto pt-8 sm:pt-12 lg:max-w-[42%]">
       <p
         class="hero-sub text-white/50 text-base sm:text-lg leading-relaxed mb-7"
       >
