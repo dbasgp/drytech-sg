@@ -29,8 +29,8 @@ const droplets = [
     />
   ))}
 
-  <!-- House PNG: absolute right side, large — shows tablet (sm) and up -->
-  <div class="absolute right-0 bottom-0 w-[56%] hidden sm:flex items-end justify-end z-0" aria-hidden="true" style="top:36%;">
+  <!-- House PNG: absolute right side — shows sm (640px) and up, responsive top/width -->
+  <div class="absolute right-0 bottom-0 hidden sm:flex items-end justify-end z-0 sm:w-[52%] sm:top-[28%] lg:w-[56%] lg:top-[36%]" aria-hidden="true">
     <img
       src="/images/house-cutaway.png"
       alt="Ceiling dehumidifier whole-house ducting system"
@@ -48,32 +48,32 @@ const droplets = [
     <!-- Headline — full container width, no column constraint -->
     <div class="font-display font-extrabold leading-[0.85]">
       <div class="overflow-hidden">
-        <div class="hero-word text-white block" style="font-size:clamp(48px,7.8vw,126px);">HUMIDITY</div>
+        <div class="hero-word text-white block" style="font-size:clamp(28px,11vw,126px);">HUMIDITY</div>
       </div>
       <div class="overflow-hidden">
-        <div class="hero-word text-white block" style="font-size:clamp(48px,7.8vw,126px);">SOLVED.</div>
+        <div class="hero-word text-white block" style="font-size:clamp(28px,11vw,126px);">SOLVED.</div>
       </div>
       <div class="overflow-hidden">
         <div
           class="hero-word block"
-          style="font-size:clamp(48px,7.8vw,126px);color:transparent;-webkit-text-stroke:2px #06b6d4;"
+          style="font-size:clamp(28px,11vw,126px);color:transparent;-webkit-text-stroke:2px #06b6d4;"
         >INVISIBLY.</div>
       </div>
     </div>
 
-    <!-- Mobile hero image: stacked inline below headline on phones only -->
-    <div class="sm:hidden relative -mx-8 mt-4 h-[48vw] max-h-56 overflow-hidden" aria-hidden="true">
+    <!-- Mobile hero image: stacked below headline on phones (<640px) -->
+    <div class="sm:hidden relative mt-6 h-[58vw] max-h-64" aria-hidden="true">
       <img
         src="/images/house-cutaway.png"
         alt=""
-        class="hero-image absolute right-0 bottom-0 h-full w-auto object-contain object-right-bottom"
+        class="hero-image absolute inset-0 w-full h-full object-contain object-center"
         loading="eager"
         decoding="async"
       />
     </div>
 
-    <!-- Subtitle + CTAs + Trust — left column only, sits below headline -->
-    <div class="sm:mt-auto pt-8 sm:pt-12 lg:max-w-[42%]">
+    <!-- Subtitle + CTAs + Trust — constrained on tablet+ so image doesn't overlap -->
+    <div class="sm:mt-auto pt-8 sm:pt-12 sm:max-w-[52%] lg:max-w-[42%]">
       <p
         class="hero-sub text-white/50 text-base sm:text-lg leading-relaxed mb-7"
       >

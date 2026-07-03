@@ -1,29 +1,17 @@
 ---
-import { productLines, waLink } from '../data/products';
+import { productLines } from '../data/products';
 import ProductCard from './ProductCard.astro';
-
-const consultLink = waLink("Hi DBA, I'd like a free consultation for a ceiling dehumidifier for my space.");
 ---
 
 <section id="products" class="py-24 bg-white">
   <div class="max-w-7xl mx-auto px-6">
 
     <!-- Section header -->
-    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-16">
-      <div>
-        <p class="text-[10px] font-mono tracking-[0.22em] uppercase text-cyan-600 mb-3">Products</p>
-        <h2 class="font-display font-bold text-slate-900 leading-tight" style="font-size:clamp(28px,4.5vw,52px);">
-          The right unit<br/>for every space.
-        </h2>
-      </div>
-      <a
-        href={consultLink}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="inline-flex items-center gap-2 border border-slate-200 hover:border-cyan-300 text-slate-600 hover:text-cyan-700 text-sm font-semibold px-5 py-2.5 rounded-full transition-colors self-start sm:self-auto whitespace-nowrap"
-      >
-        Not sure which? Ask us →
-      </a>
+    <div class="mb-12">
+      <p class="text-[10px] font-mono tracking-[0.22em] uppercase text-cyan-600 mb-3">Products</p>
+      <h2 class="font-display font-bold text-slate-900 leading-tight" style="font-size:clamp(28px,4.5vw,52px);">
+        The right unit<br/>for every space.
+      </h2>
     </div>
 
     <!-- Tab navigation -->
@@ -50,12 +38,12 @@ const consultLink = waLink("Hi DBA, I'd like a free consultation for a ceiling d
         style={li !== 0 ? 'display:none;' : ''}
       >
         <!-- Line blurb -->
-        <p class="text-slate-500 text-sm max-w-2xl mb-6 leading-relaxed">{line.blurb}</p>
+        <p class="text-slate-500 text-sm max-w-2xl mb-8 leading-relaxed">{line.blurb}</p>
 
-        <!-- Product rows -->
-        <div class="divide-y divide-slate-100 -mx-4">
-          {line.products.map((product, pi) => (
-            <ProductCard product={product} index={pi} />
+        <!-- Product grid -->
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+          {line.products.map((product) => (
+            <ProductCard product={product} />
           ))}
         </div>
       </div>
