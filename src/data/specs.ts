@@ -213,31 +213,31 @@ export const catalogByLine: Record<string, CatalogInfo> = {
   "Ultra-Thin Ceiling": {
     title: "Ultra-Thin Ceiling Series Catalog",
     file: "/catalogs/dba-ultra-thin-ceiling.pdf",
-    thumb: "/images/catalogs/catalog-ultra-thin.jpg",
+    thumb: "/images/catalogs/catalog-ultra-thin.jpg?v=2",
   },
   "Commercial Ceiling": {
     title: "Commercial Ceiling Series Catalog",
     file: "/catalogs/dba-commercial-ceiling.pdf",
-    thumb: "/images/catalogs/catalog-commercial-ceiling.jpg",
+    thumb: "/images/catalogs/catalog-commercial-ceiling.jpg?v=2",
   },
   "Restoration": {
     title: "Restoration Series Catalog",
     file: "/catalogs/dba-restoration.pdf",
-    thumb: "/images/catalogs/catalog-restoration.jpg",
+    thumb: "/images/catalogs/catalog-restoration.jpg?v=2",
   },
   "Industrial": {
     title: "Industrial & Specialised Catalog",
     file: "/catalogs/dba-industrial-specialised.pdf",
-    thumb: "/images/catalogs/catalog-industrial.jpg",
+    thumb: "/images/catalogs/catalog-industrial.jpg?v=2",
   },
   "Humidity Control": {
     title: "Industrial & Specialised Catalog",
     file: "/catalogs/dba-industrial-specialised.pdf",
-    thumb: "/images/catalogs/catalog-industrial.jpg",
+    thumb: "/images/catalogs/catalog-industrial.jpg?v=2",
   },
   "Desiccant": {
     title: "Industrial & Specialised Catalog",
     file: "/catalogs/dba-industrial-specialised.pdf",
-    thumb: "/images/catalogs/catalog-industrial.jpg",
+    thumb: "/images/catalogs/catalog-industrial.jpg?v=2",
   },
 };
