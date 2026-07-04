@@ -1,6 +1,6 @@
 // src/data/products.ts
 // DryTech.sg — DBA dehumidifier product data
-// Specs sourced from dba.hk product pages (verified July 2026).
+// Specs sourced from dba.sg product pages (verified July 2026).
 // Prices intentionally omitted — this is a lead-gen showcase, not a store.
 
 export type SpaceType = "residential" | "commercial" | "industrial";
@@ -74,7 +74,7 @@ export const productLines: ProductLine[] = [
           "196W rated / 300W max · R134a refrigerant · Grade 1 Energy Label",
         ],
         image: "/images/products/dba-utc20.jpg",
-        sourceUrl: "https://www.dba.hk/products/dba-utc20",
+        sourceUrl: "https://www.dba.sg/products/dba-utc20-ultra-thin-ceiling-dehumidifier",
         enquiryText: "Hi DBA, I'm interested in the DBA-UTC20 (20L/day ultra-thin ceiling dehumidifier). Could you share more details and a quote for Singapore?",
       },
       {
@@ -97,7 +97,7 @@ export const productLines: ProductLine[] = [
           "880W rated / 1,250W max · R410A refrigerant",
         ],
         image: "/images/products/dba-utc68.jpg",
-        sourceUrl: "https://www.dba.hk/products/dba-utc68",
+        sourceUrl: "https://www.dba.sg/products/dba-utc68-ultra-thin-ceiling-dehumidifier",
         enquiryText: "Hi DBA, I'm interested in the DBA-UTC68 (68L/day ultra-thin ceiling dehumidifier). Could you share more details and a quote for Singapore?",
       },
       {
@@ -120,7 +120,7 @@ export const productLines: ProductLine[] = [
           "1,010W rated / 1,600W max · R410A refrigerant",
         ],
         image: "/images/products/dba-utc120.jpg",
-        sourceUrl: "https://www.dba.hk/products/dba-utc120",
+        sourceUrl: "https://www.dba.sg/products/dba-utc120-ultra-thin-ceiling-dehumidifier",
         enquiryText: "Hi DBA, I'm interested in the DBA-UTC120 (120L/day ultra-thin ceiling dehumidifier). Could you share more details and a quote for Singapore?",
       },
     ],
@@ -151,7 +151,7 @@ export const productLines: ProductLine[] = [
           "730W rated / 940W max · R410A refrigerant",
         ],
         image: "/images/products/dba-gec68ld-hp.jpg",
-        sourceUrl: "https://www.dba.hk/products/dba-gec68ld-hp",
+        sourceUrl: "https://www.dba.sg/products/dba-gec68ld-hp-ceiling-dehumidifier",
         enquiryText: "Hi DBA, I'm interested in the DBA-GEC68LD-HP commercial ceiling dehumidifier. Could you share more details and a quote for Singapore?",
       },
       {
@@ -174,7 +174,7 @@ export const productLines: ProductLine[] = [
           "1,520W rated / 2,220W max · R410A/1.2 kg refrigerant",
         ],
         image: "/images/products/dba-gec145ld-hp.jpg",
-        sourceUrl: "https://www.dba.hk/products/dba-gec145ld-hp",
+        sourceUrl: "https://www.dba.sg/products/dba-gec145ld-hp-industrial-dehumidifier",
         enquiryText: "Hi DBA, I'm interested in the DBA-GEC145LD-HP commercial ceiling dehumidifier. Could you share more details and a quote for Singapore?",
       },
       {
@@ -196,7 +196,7 @@ export const productLines: ProductLine[] = [
           "R410A/1.9 kg refrigerant",
         ],
         image: "/images/products/dba-gec280ld.jpg",
-        sourceUrl: "https://www.dba.hk/products/dba-gec280ld",
+        sourceUrl: "https://www.dba.sg/products/dba-gec280ld-ceiling-dehumidifier",
         enquiryText: "Hi DBA, I'm interested in the DBA-GEC280LD ceiling dehumidifier. Could you share more details and a quote for Singapore?",
       },
       {
@@ -218,7 +218,7 @@ export const productLines: ProductLine[] = [
           "R410A/1.9 kg × 2 refrigerant",
         ],
         image: "/images/products/dba-gec400ld.jpg",
-        sourceUrl: "https://www.dba.hk/products/dba-gec400ld",
+        sourceUrl: "https://www.dba.sg/products/dba-gec400ld-ceiling-dehumidifier",
         enquiryText: "Hi DBA, I'm interested in the DBA-GEC400LD ceiling dehumidifier. Could you share more details and a quote for Singapore?",
       },
       {
@@ -240,7 +240,7 @@ export const productLines: ProductLine[] = [
           "R410A/2.2 kg × 2 refrigerant",
         ],
         image: "/images/products/dba-gec550ld.jpg",
-        sourceUrl: "https://www.dba.hk/products/dba-gec550ld",
+        sourceUrl: "https://www.dba.sg/products/dba-gec550ld-ceiling-dehumidifier",
         enquiryText: "Hi DBA, I'm interested in the DBA-GEC550LD ceiling dehumidifier. Could you share more details and a quote for Singapore?",
       },
     ],
@@ -270,7 +270,7 @@ export const productLines: ProductLine[] = [
           "680W rated · R410A/290g refrigerant",
         ],
         image: "/images/products/dba-dh65.jpg",
-        sourceUrl: "https://www.dba.hk/products/dba-dh65",
+        sourceUrl: "https://www.dba.sg/products/dba-dh65",
         enquiryText: "Hi DBA, I'm interested in the DBA-DH65 restoration dehumidifier. Could you share more details and a quote for Singapore?",
       },
       {
@@ -292,7 +292,7 @@ export const productLines: ProductLine[] = [
           "580W rated · R290/200g (natural refrigerant)",
         ],
         image: "/images/products/dba-gex75.jpg",
-        sourceUrl: "https://www.dba.hk/products/dehumidifier-dba-gex75",
+        sourceUrl: "https://www.dba.sg/products/dehumidifier-dba-gex75",
         enquiryText: "Hi DBA, I'm interested in the DBA-GEX75 restoration dehumidifier. Could you share more details and a quote for Singapore?",
       },
       {
@@ -314,7 +314,7 @@ export const productLines: ProductLine[] = [
           "950W rated · R290/235g (natural refrigerant)",
         ],
         image: "/images/products/dba-gex110.jpg",
-        sourceUrl: "https://www.dba.hk/products/dehumidifier-dba-gex110",
+        sourceUrl: "https://www.dba.sg/products/dehumidifier-dba-gex110",
         enquiryText: "Hi DBA, I'm interested in the DBA-GEX110 restoration dehumidifier. Could you share more details and a quote for Singapore?",
       },
     ],
@@ -341,7 +341,7 @@ export const productLines: ProductLine[] = [
           "RS485 Modbus and BMS integration",
         ],
         image: "/images/products/industrial.jpg",
-        sourceUrl: "https://www.dba.hk/collections/industrial-dehumidifier",
+        sourceUrl: "https://www.dba.sg/collections/industrial-dehumidifier",
         enquiryText: "Hi DBA, I'm looking for an industrial dehumidifier for a large space in Singapore. Could you advise and share a quote?",
       },
       {
@@ -360,7 +360,7 @@ export const productLines: ProductLine[] = [
           "RS485 Modbus for BMS integration",
         ],
         image: "/images/products/humidity-control-unit.png",
-        sourceUrl: "https://www.dba.hk/collections/humidity-control-unit",
+        sourceUrl: "https://www.dba.sg/collections/humidity-control-unit",
         enquiryText: "Hi DBA, I'm interested in your humidity control units (dehumidify + humidify) for Singapore. Could you share more details?",
       },
       {
@@ -379,7 +379,7 @@ export const productLines: ProductLine[] = [
           "No condensate — moisture captured in desiccant rotor",
         ],
         image: "/images/products/desiccant.jpg",
-        sourceUrl: "https://www.dba.hk/collections/desiccant-dehumidifier",
+        sourceUrl: "https://www.dba.sg/collections/desiccant-dehumidifier",
         enquiryText: "Hi DBA, I'm interested in your desiccant dehumidifiers for a low-temperature / low-humidity application in Singapore. Could you advise?",
       },
     ],
