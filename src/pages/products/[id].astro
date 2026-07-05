@@ -288,25 +288,29 @@ const waIcon = `<path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.09
               target="_blank"
               rel="noopener noreferrer"
               download
-              class="group flex items-center gap-4 bg-white border border-slate-200 hover:border-cyan-200 hover:shadow-md rounded-2xl p-4 transition-all duration-200"
+              class="group block bg-white border-2 border-cyan-500/40 hover:border-cyan-500 rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-200"
             >
-              <div class="shrink-0 w-16 aspect-[3/4] rounded-lg overflow-hidden bg-slate-100 border border-slate-100">
-                <img
-                  src={catalog.thumb}
-                  alt={`${catalog.title} cover`}
-                  class="w-full h-full object-cover object-top"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-              <div class="min-w-0">
-                <div class="font-display font-semibold text-slate-900 text-sm leading-snug mb-1 group-hover:text-cyan-700 transition-colors">{catalog.title}</div>
-                <div class="inline-flex items-center gap-1.5 text-cyan-600 text-xs font-bold">
-                  <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v12m0 0l-4-4m4 4 4-4M4 20h16"/>
-                  </svg>
-                  Download PDF
+              <div class="flex items-center gap-4 p-4">
+                <div class="shrink-0 w-20 aspect-[3/4] rounded-lg overflow-hidden bg-slate-100 shadow-md group-hover:scale-[1.03] transition-transform duration-300">
+                  <img
+                    src={catalog.thumb}
+                    alt={`${catalog.title} cover`}
+                    class="w-full h-full object-cover object-top"
+                    loading="lazy"
+                    decoding="async"
+                  />
                 </div>
+                <div class="min-w-0">
+                  <p class="text-[10px] font-bold tracking-[0.16em] uppercase text-cyan-600 mb-1">Product catalog</p>
+                  <div class="font-sans font-bold text-slate-900 text-sm leading-snug">{catalog.title}</div>
+                  <p class="text-slate-400 text-xs mt-1">Full specs &amp; drawings (PDF)</p>
+                </div>
+              </div>
+              <div class="flex items-center justify-center gap-2 bg-cyan-600 group-hover:bg-cyan-500 text-white text-sm font-semibold py-3 transition-colors">
+                <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v12m0 0l-4-4m4 4 4-4M4 20h16"/>
+                </svg>
+                Download PDF Catalog
               </div>
             </a>
           )}
