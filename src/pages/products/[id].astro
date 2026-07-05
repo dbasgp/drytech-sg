@@ -322,6 +322,60 @@ const waIcon = `<path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.09
       </div>
     </section>
 
+    <!-- ── Catalog download band ────────────────────────────────── -->
+    {catalog && (
+      <section class="py-16 bg-dt-950 relative overflow-hidden">
+        <div class="absolute inset-0 pointer-events-none" aria-hidden="true"
+          style="background-image:radial-gradient(circle,rgba(255,255,255,0.03) 1px,transparent 1px);background-size:28px 28px;"></div>
+        <div class="max-w-7xl mx-auto px-6 relative">
+          <div class="flex flex-col sm:flex-row items-center gap-8 sm:gap-12">
+
+            <a href={catalog.file} target="_blank" rel="noopener noreferrer" download
+              class="group shrink-0 relative"
+              aria-label={`Download the ${catalog.title}`}>
+              <div class="absolute inset-[-15%] bg-cyan-500/15 rounded-full blur-3xl" aria-hidden="true"></div>
+              <img
+                src={catalog.thumb}
+                alt={`${catalog.title} cover`}
+                class="relative w-40 sm:w-48 rounded-xl shadow-[0_20px_50px_-12px_rgba(0,0,0,0.7)] group-hover:scale-[1.04] group-hover:-rotate-1 transition-transform duration-300"
+                loading="lazy"
+                decoding="async"
+              />
+            </a>
+
+            <div class="text-center sm:text-left">
+              <p class="text-xs font-semibold tracking-[0.16em] uppercase text-cyan-400 mb-3">Free download</p>
+              <h2 class="font-display font-bold text-white text-2xl sm:text-3xl leading-tight mb-3">
+                {catalog.title}
+              </h2>
+              <p class="text-white/50 text-base leading-relaxed mb-7 max-w-xl">
+                Full specifications, dimensions, installation drawings and performance data
+                for the complete {product.line} range — including the {product.name}.
+              </p>
+              <div class="flex flex-wrap items-center justify-center sm:justify-start gap-4">
+                <a
+                  href={catalog.file}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  download
+                  class="inline-flex items-center gap-2.5 bg-cyan-600 hover:bg-cyan-500 text-white font-semibold px-7 py-3.5 rounded-full transition-colors text-sm"
+                >
+                  <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v12m0 0l-4-4m4 4 4-4M4 20h16"/>
+                  </svg>
+                  Download PDF Catalog
+                </a>
+                <a href="/#catalogs" class="text-white/50 hover:text-white text-sm font-medium transition-colors">
+                  View all catalogs →
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+    )}
+
     <!-- ── Related products ─────────────────────────────────────── -->
     {related.length > 0 && (
       <section class="py-20 bg-slate-50">
