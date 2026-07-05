@@ -23,9 +23,9 @@ const enquireUrl = waLink(product.enquiryText);
 const specRows = specs[product.id] ?? [];
 const catalog = catalogByLine[product.line];
 const images = gallery[product.id] ?? [product.image];
-// Approximate width of the product name in em (Syne 800 caps ≈ 1.08em/char),
+// Approximate width of the product name in em (DM Sans bold caps ≈ 0.74em/char),
 // used to size the H1 so it always fits on one line.
-const nameEm = (product.name.length * 1.08).toFixed(2);
+const nameEm = (product.name.length * 0.74).toFixed(2);
 const telHref = `tel:${contact.hotline.replace(/\s/g, '')}`;
 const mailHref = `mailto:${contact.email}`;
 
@@ -74,17 +74,17 @@ const waIcon = `<path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.09
           <span class="text-white/55">{product.name}</span>
         </nav>
 
-        <div class="grid lg:grid-cols-2 gap-10 lg:gap-20 items-center pb-20">
+        <div class="grid lg:grid-cols-2 gap-10 lg:gap-20 items-start pb-20">
 
           <!-- Left: product info -->
-          <div class="order-2 lg:order-1 min-w-0">
+          <div class="order-2 lg:order-1 min-w-0 lg:pt-10">
             <div class="flex flex-wrap items-center gap-3 mb-5">
               <span class="text-[10px] font-mono tracking-[0.2em] uppercase text-cyan-500/80">{product.line}</span>
               <span class="w-px h-3 bg-white/20" aria-hidden="true"></span>
               <span class="font-mono text-sm font-bold text-cyan-300">{product.capacity}</span>
             </div>
 
-            <h1 class="product-title font-display font-extrabold text-white leading-[0.88] tracking-tight mb-5 whitespace-nowrap"
+            <h1 class="product-title font-sans font-bold text-white leading-none tracking-tight mb-5 whitespace-nowrap"
               style={`--name-em:${nameEm};`}>
               {product.name}
             </h1>
@@ -113,14 +113,14 @@ const waIcon = `<path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.09
               </a>
               <a
                 href={telHref}
-                class="inline-flex items-center gap-2.5 border border-white/20 hover:border-white/40 text-white/80 hover:text-white font-semibold px-6 py-3.5 rounded-full transition-colors text-sm"
+                class="inline-flex items-center gap-2.5 bg-emerald-600 hover:bg-emerald-500 text-white font-semibold px-6 py-3.5 rounded-full transition-colors text-sm"
               >
                 <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true" set:html={phoneIcon}></svg>
                 {contact.hotline}
               </a>
               <a
                 href={mailHref}
-                class="inline-flex items-center gap-2.5 border border-white/20 hover:border-white/40 text-white/80 hover:text-white font-semibold px-6 py-3.5 rounded-full transition-colors text-sm"
+                class="inline-flex items-center gap-2.5 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold px-6 py-3.5 rounded-full transition-colors text-sm"
               >
                 <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true" set:html={mailIcon}></svg>
                 Email us
@@ -144,24 +144,46 @@ const waIcon = `<path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.09
                 />
               </div>
               {images.length > 1 && (
-                <div class="relative mt-4 flex gap-2.5 overflow-x-auto pb-1" aria-label="Product photos">
-                  {images.map((src, i) => (
-                    <button
-                      type="button"
-                      data-thumb={src}
-                      aria-label={`Photo ${i + 1} of ${product.name}`}
-                      class={`shrink-0 w-16 h-16 sm:w-[72px] sm:h-[72px] bg-white rounded-xl p-1.5 transition-all ring-cyan-400 hover:ring-2 ${i === 0 ? 'ring-2' : 'opacity-70 hover:opacity-100'}`}
-                    >
-                      <img
-                        src={src}
-                        alt=""
-                        class="w-full h-full object-contain pointer-events-none"
-                        style="mix-blend-mode:multiply;"
-                        loading="lazy"
-                        decoding="async"
-                      />
-                    </button>
-                  ))}
+                <div class="relative mt-4" aria-label="Product photos">
+                  <button
+                    type="button"
+                    id="thumb-prev"
+                    aria-label="Previous photos"
+                    class="absolute -left-3 top-1/2 -translate-y-1/2 z-10 w-9 h-9 rounded-full bg-white text-slate-700 shadow-lg flex items-center justify-center hover:bg-cyan-500 hover:text-white transition-colors"
+                  >
+                    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
+                    </svg>
+                  </button>
+                  <div id="thumb-strip" class="flex gap-2.5 overflow-x-auto scroll-smooth snap-x pb-1 px-1 scrollbar-hide">
+                    {images.map((src, i) => (
+                      <button
+                        type="button"
+                        data-thumb={src}
+                        aria-label={`Photo ${i + 1} of ${product.name}`}
+                        class={`thumb-btn shrink-0 w-16 h-16 sm:w-[76px] sm:h-[76px] bg-white rounded-xl p-1.5 snap-start cursor-pointer transition-all duration-200 ring-cyan-400 hover:ring-2 hover:-translate-y-1 hover:shadow-[0_8px_20px_-6px_rgba(34,211,238,0.5)] ${i === 0 ? 'ring-2' : 'opacity-70 hover:opacity-100'}`}
+                      >
+                        <img
+                          src={src}
+                          alt=""
+                          class="w-full h-full object-contain pointer-events-none"
+                          style="mix-blend-mode:multiply;"
+                          loading="lazy"
+                          decoding="async"
+                        />
+                      </button>
+                    ))}
+                  </div>
+                  <button
+                    type="button"
+                    id="thumb-next"
+                    aria-label="Next photos"
+                    class="absolute -right-3 top-1/2 -translate-y-1/2 z-10 w-9 h-9 rounded-full bg-white text-slate-700 shadow-lg flex items-center justify-center hover:bg-cyan-500 hover:text-white transition-colors"
+                  >
+                    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+                    </svg>
+                  </button>
                 </div>
               )}
             </div>
@@ -246,14 +268,14 @@ const waIcon = `<path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.09
             </a>
             <a
               href={telHref}
-              class="flex items-center justify-center gap-2 border border-white/15 hover:border-white/35 text-white/70 hover:text-white font-semibold px-5 py-3 rounded-xl transition-colors text-sm w-full mb-3"
+              class="flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white font-semibold px-5 py-3 rounded-xl transition-colors text-sm w-full mb-3"
             >
               <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true" set:html={phoneIcon}></svg>
               Call {contact.hotline}
             </a>
             <a
               href={mailHref}
-              class="flex items-center justify-center gap-2 border border-white/15 hover:border-white/35 text-white/70 hover:text-white font-semibold px-5 py-3 rounded-xl transition-colors text-sm w-full"
+              class="flex items-center justify-center gap-2 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold px-5 py-3 rounded-xl transition-colors text-sm w-full"
             >
               <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true" set:html={mailIcon}></svg>
               {contact.email}
@@ -349,6 +371,15 @@ const waIcon = `<path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.09
       font-size: min(76px, calc((min(100vw, 1280px) - 128px) / 2 / var(--name-em)));
     }
   }
+
+  /* Hide the thumbnail strip's scrollbar; the arrows are the scroll affordance. */
+  .scrollbar-hide {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
 </style>
 
 <script>
@@ -364,6 +395,26 @@ const waIcon = `<path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.09
       });
       btn.classList.add('ring-2');
       btn.classList.remove('opacity-70');
+      btn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'nearest' });
     });
   });
+
+  const strip = document.getElementById('thumb-strip');
+  const prev = document.getElementById('thumb-prev');
+  const next = document.getElementById('thumb-next');
+  if (strip && prev && next) {
+    const page = () => Math.max(strip.clientWidth * 0.8, 160);
+    prev.addEventListener('click', () => strip.scrollBy({ left: -page(), behavior: 'smooth' }));
+    next.addEventListener('click', () => strip.scrollBy({ left: page(), behavior: 'smooth' }));
+
+    // Hide arrows that can't scroll any further (or both, if everything fits).
+    const update = () => {
+      const overflow = strip.scrollWidth > strip.clientWidth + 4;
+      prev.classList.toggle('hidden', !overflow || strip.scrollLeft <= 4);
+      next.classList.toggle('hidden', !overflow || strip.scrollLeft + strip.clientWidth >= strip.scrollWidth - 4);
+    };
+    strip.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+    update();
+  }
 </script>
