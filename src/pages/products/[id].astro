@@ -5,6 +5,7 @@ import Footer from '../../components/Footer.astro';
 import { allProducts, waLink, contact } from '../../data/products';
 import type { Product } from '../../data/products';
 import { specs, catalogByLine } from '../../data/specs';
+import { gallery } from '../../data/gallery';
 
 export function getStaticPaths() {
   return allProducts.map(product => ({
@@ -21,6 +22,10 @@ const { product } = Astro.props;
 const enquireUrl = waLink(product.enquiryText);
 const specRows = specs[product.id] ?? [];
 const catalog = catalogByLine[product.line];
+const images = gallery[product.id] ?? [product.image];
+// Approximate width of the product name in em (Syne 800 caps ≈ 1.08em/char),
+// used to size the H1 so it always fits on one line.
+const nameEm = (product.name.length * 1.08).toFixed(2);
 const telHref = `tel:${contact.hotline.replace(/\s/g, '')}`;
 const mailHref = `mailto:${contact.email}`;
 
@@ -72,15 +77,15 @@ const waIcon = `<path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.09
         <div class="grid lg:grid-cols-2 gap-10 lg:gap-20 items-center pb-20">
 
           <!-- Left: product info -->
-          <div class="order-2 lg:order-1">
+          <div class="order-2 lg:order-1 min-w-0">
             <div class="flex flex-wrap items-center gap-3 mb-5">
               <span class="text-[10px] font-mono tracking-[0.2em] uppercase text-cyan-500/80">{product.line}</span>
               <span class="w-px h-3 bg-white/20" aria-hidden="true"></span>
               <span class="font-mono text-sm font-bold text-cyan-300">{product.capacity}</span>
             </div>
 
-            <h1 class="font-display font-extrabold text-white leading-[0.88] tracking-tight mb-5"
-              style="font-size:clamp(36px,5.5vw,76px);">
+            <h1 class="product-title font-display font-extrabold text-white leading-[0.88] tracking-tight mb-5 whitespace-nowrap"
+              style={`--name-em:${nameEm};`}>
               {product.name}
             </h1>
 
@@ -123,13 +128,14 @@ const waIcon = `<path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.09
             </div>
           </div>
 
-          <!-- Right: product image on white panel -->
-          <div class="order-1 lg:order-2 flex items-center justify-center">
+          <!-- Right: product image gallery on white panel -->
+          <div class="order-1 lg:order-2 flex items-center justify-center min-w-0">
             <div class="relative w-full max-w-sm sm:max-w-md lg:max-w-none">
               <div class="absolute inset-[-20%] bg-cyan-500/8 rounded-full blur-3xl" aria-hidden="true"></div>
               <div class="relative bg-white rounded-3xl aspect-square flex items-center justify-center p-10 sm:p-14 shadow-[0_24px_64px_-12px_rgba(0,0,0,0.55)]">
                 <img
-                  src={product.image}
+                  id="product-main-img"
+                  src={images[0]}
                   alt={product.name}
                   class="w-full h-full object-contain"
                   style="mix-blend-mode:multiply;"
@@ -137,6 +143,27 @@ const waIcon = `<path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.09
                   decoding="async"
                 />
               </div>
+              {images.length > 1 && (
+                <div class="relative mt-4 flex gap-2.5 overflow-x-auto pb-1" aria-label="Product photos">
+                  {images.map((src, i) => (
+                    <button
+                      type="button"
+                      data-thumb={src}
+                      aria-label={`Photo ${i + 1} of ${product.name}`}
+                      class={`shrink-0 w-16 h-16 sm:w-[72px] sm:h-[72px] bg-white rounded-xl p-1.5 transition-all ring-cyan-400 hover:ring-2 ${i === 0 ? 'ring-2' : 'opacity-70 hover:opacity-100'}`}
+                    >
+                      <img
+                        src={src}
+                        alt=""
+                        class="w-full h-full object-contain pointer-events-none"
+                        style="mix-blend-mode:multiply;"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </button>
+                  ))}
+                </div>
+              )}
             </div>
           </div>
 
@@ -309,3 +336,34 @@ const waIcon = `<path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.09
   </main>
   <Footer />
 </Layout>
+
+<style>
+  /* Size the product name so it always fits on a single line.
+     --name-em is the name's approximate rendered width in em. */
+  .product-title {
+    font-size: min(76px, calc((100vw - 48px) / var(--name-em)));
+  }
+  @media (min-width: 1024px) {
+    /* Two-column hero: title column is half the content width (max-w-7xl minus padding and gap). */
+    .product-title {
+      font-size: min(76px, calc((min(100vw, 1280px) - 128px) / 2 / var(--name-em)));
+    }
+  }
+</style>
+
+<script>
+  const mainImg = document.getElementById('product-main-img') as HTMLImageElement | null;
+  const thumbs = document.querySelectorAll<HTMLButtonElement>('[data-thumb]');
+  thumbs.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      if (!mainImg || !btn.dataset.thumb) return;
+      mainImg.src = btn.dataset.thumb;
+      thumbs.forEach((b) => {
+        b.classList.remove('ring-2');
+        b.classList.add('opacity-70');
+      });
+      btn.classList.add('ring-2');
+      btn.classList.remove('opacity-70');
+    });
+  });
+</script>
