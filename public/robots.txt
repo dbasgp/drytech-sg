@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://drytech.sg/sitemap-index.xml
+Sitemap: https://www.drytech.sg/sitemap-index.xml
